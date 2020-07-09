@@ -8,7 +8,11 @@ Also, installing your dependencies via Homebrew will burn you since it will some
 
 ## PostGIS
 
+To compile PostGIS from scratch you will need:
 
+ * PostgreSQL installation with header files
+ * PROJ compiled from sources (Homebrew version does not work)
+ 
 
 ### `configure: error: could not find libproj - you may need to specify the directory of a PROJ.4 installation using --with-projdir`
 
@@ -30,4 +34,6 @@ The included json lib might be too old. In my case, I could solve the problem si
 
 ### `Library not loaded: /usr/local/opt/protobuf/lib/libprotobuf.21.dylib`
 
-`--without-protobuf`
+Try reinstalling protobuf with Homebrew, take note of the directory it was installed in. Mine was `/usr/local/Cellar/protobuf-c/1.3.3_1`.
+
+Give that folder to the configure script with `--with-protobufdir=/usr/local/Cellar/protobuf-c/1.3.3_1`
